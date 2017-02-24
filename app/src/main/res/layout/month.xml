@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.calendarrscalendar.calendar.MonthView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/CalendarTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center_horizontal" />
+
+    <!--<com.calendarrscalendar.calendar.CalendarGridView
+        android:id="@+id/calendar_title_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/week" />
+    </com.calendarrscalendar.calendar.CalendarGridView>-->
+
+    <com.calendarrscalendar.calendar.CalendarGridView
+        android:id="@+id/calendar_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.calendarrscalendar.calendar.CalendarRowView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/calendar_day_headers_paddingbottom">
+
+        </com.calendarrscalendar.calendar.CalendarRowView>
+
+        <include layout="@layout/week" />
+
+        <include layout="@layout/week" />
+
+        <include layout="@layout/week" />
+
+        <include layout="@layout/week" />
+
+        <include layout="@layout/week" />
+
+        <include layout="@layout/week" />
+    </com.calendarrscalendar.calendar.CalendarGridView>
+</com.calendarrscalendar.calendar.MonthView>
