@@ -46,6 +46,7 @@ public class CalendarCellView extends FrameLayout {
     private boolean isTitleText = false;
     private MonthCellDescriptor.RangeState rangeState = MonthCellDescriptor.RangeState.NONE;
     private TextView dayOfMonthTextView;
+    private TextView monthLabel;
     private View line;
     private View scheduledDateIndicator;
 
@@ -68,6 +69,10 @@ public class CalendarCellView extends FrameLayout {
         }
     }
 
+    public void setMonthLabelShow(boolean isVisible,String monthName) {
+        monthLabel.setText(monthName);
+        monthLabel.setVisibility(isVisible ? VISIBLE : INVISIBLE);
+    }
     public void setToday(boolean isToday) {
         if (this.isToday != isToday) {
             this.isToday = isToday;
@@ -78,6 +83,10 @@ public class CalendarCellView extends FrameLayout {
     public void setTitleValue(boolean isTitleText) {
         if (this.isTitleText != isTitleText) {
             if (dayOfMonthTextView != null) {
+                ViewGroup.LayoutParams layoutParams = dayOfMonthTextView.getLayoutParams();
+                layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;
+                layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                dayOfMonthTextView.setLayoutParams(layoutParams);
                 dayOfMonthTextView.setTextSize(14);
                 dayOfMonthTextView.setTextColor(getResources().getColor(R.color.title_month));
                 this.line.setVisibility(GONE);
@@ -151,11 +160,15 @@ public class CalendarCellView extends FrameLayout {
         return drawableState;
     }
 
+    public void setMonthLabelTextView(TextView monthName) {
+        this.monthLabel = monthName;
+    }
+
     public void setDayOfMonthTextView(TextView textView) {
         dayOfMonthTextView = textView;
     }
 
-    public void setDashLineView(View dashLineView,View scheduleIndicator) {
+    public void setDashLineView(View dashLineView, View scheduleIndicator) {
         this.line = dashLineView;
         this.scheduledDateIndicator = scheduleIndicator;
     }
@@ -169,4 +182,14 @@ public class CalendarCellView extends FrameLayout {
         }
         return dayOfMonthTextView;
     }
+
+    public TextView getMonthLabelTextView() {
+        if (monthLabel == null) {
+            throw new IllegalStateException(
+                    "You have to setMonthLabelTextView in your custom DayViewAdapter."
+            );
+        }
+        return monthLabel;
+    }
 }
+

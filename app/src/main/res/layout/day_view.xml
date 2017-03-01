@@ -2,7 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
+    <TextView
+        android:id="@+id/month_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="@color/title_month"
+        android:layout_marginBottom="6dp"
+        android:textSize="14sp"/>
     <View
         android:id="@+id/vi_dash"
         android:layout_width="match_parent"
@@ -10,19 +18,18 @@
         android:background="@color/colorAccent"/>
     <TextView
         android:id="@+id/day"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
         android:gravity="center"
         android:layout_gravity="center"
         android:textSize="18sp"
-        android:layout_marginTop="4dp"
-        android:text="12"/>
+        android:layout_marginTop="2dp" />
     <View
         android:id="@+id/date_schedule_view"
         android:layout_width="8dp"
         android:layout_height="8dp"
         android:text="0"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_gravity="center"
         android:background="@drawable/circle"/>
 </LinearLayout>

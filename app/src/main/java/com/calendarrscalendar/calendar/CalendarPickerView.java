@@ -555,7 +555,7 @@ public class CalendarPickerView extends ListView {
     @Override
     public void handleClick(MonthCellDescriptor cell) {
       Date clickedDate = cell.getDate();
-
+      Toast.makeText(getContext(),"Date selected "+clickedDate,Toast.LENGTH_SHORT).show();
       if (cellClickInterceptor != null && cellClickInterceptor.onCellClicked(clickedDate)) {
         return;
       }

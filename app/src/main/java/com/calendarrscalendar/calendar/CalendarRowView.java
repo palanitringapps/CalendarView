@@ -5,18 +5,14 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.calendarrscalendar.R;
 
 import static android.view.View.MeasureSpec.AT_MOST;
 import static android.view.View.MeasureSpec.EXACTLY;
 import static android.view.View.MeasureSpec.makeMeasureSpec;
 
-/** TableRow that draws a divider between each cell. To be used with {@link CalendarGridView}. */
 public class CalendarRowView extends ViewGroup implements View.OnClickListener {
   private boolean isHeaderRow;
   private MonthView.Listener listener;
@@ -38,7 +34,6 @@ public class CalendarRowView extends ViewGroup implements View.OnClickListener {
     int rowHeight = 0;
     for (int c = 0, numChildren = getChildCount(); c < numChildren; c++) {
       final View child = getChildAt(c);
-      // Calculate width cells, making sure to cover totalWidth.
       int l = ((c + 0) * totalWidth) / 5;
       int r = ((c + 1) * totalWidth) / 5;
       int cellSize = (r - l);
@@ -57,7 +52,6 @@ public class CalendarRowView extends ViewGroup implements View.OnClickListener {
 
   @Override
   protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-    long start = System.currentTimeMillis();
     int cellHeight = bottom - top;
     int width = (right - left);
     for (int c = 0, numChildren = getChildCount(); c < numChildren; c++) {

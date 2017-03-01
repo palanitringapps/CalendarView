@@ -9,7 +9,7 @@
             <solid android:color="@color/custom_background_disabled"/>
         </shape>
     </item>
-    <item app:tsquare_state_today="true" android:drawable="@drawable/bg_circle_today"/>
+    <!--<item app:tsquare_state_today="true" android:drawable="@drawable/bg_circle_today"/>-->
     <item>
         <shape android:shape="oval">
             <solid android:color="@color/custom_background"/>
