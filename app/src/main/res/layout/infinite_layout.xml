@@ -22,7 +22,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="S"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days" />
         </RelativeLayout>
 
@@ -38,7 +38,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="M"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days"/>
         </RelativeLayout>
 
@@ -54,7 +54,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="T"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days"
                 />
         </RelativeLayout>
@@ -71,7 +71,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="W"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days"
                 />
         </RelativeLayout>
@@ -88,7 +88,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="Th"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days"
                 />
         </RelativeLayout>
@@ -105,7 +105,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="F"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days"
                 />
         </RelativeLayout>
@@ -122,7 +122,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="S"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days" />
         </RelativeLayout>
     </LinearLayout>

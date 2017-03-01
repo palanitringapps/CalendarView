@@ -2,7 +2,7 @@
 <resources>
   <color name="colorPrimary">#333333</color>
   <color name="colorPrimaryDark">#333333</color>
-  <color name="colorAccent">#c0c0c0</color>
+  <color name="colorAccent">#40c0c0c0</color>
   <color name="calendar_active_month_bg">#ffffff</color>
   <color name="calendar_bg">#ffffffff</color>
   <color name="calendar_divider">#ffbababa</color>
@@ -14,7 +14,7 @@
   <color name="calendar_text_inactive">#40778088</color>
   <color name="calendar_text_active">#ff778088</color>
   <color name="calendar_text_selected">#ffffffff</color>
-  <color name="calendar_text_unselectable">#7f778088</color>
+  <color name="calendar_text_unselectable">#000000</color>
   <color name="calendar_text_highlighted">#ff778088</color>
 
   <color name="custom_header_text">#850088</color>
@@ -25,4 +25,5 @@
   <color name="custom_text_selected">#FFFFFFFF</color>
   <color name="custom_text_inactive">#7f778088</color>
   <color name="transparent">#00000000</color>
+  <color name="title_month">#2C8D1B</color>
 </resources>

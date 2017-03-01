@@ -4,6 +4,7 @@ package com.calendarrscalendar.calendar;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -130,37 +131,69 @@ public class MonthView extends LinearLayout {
         title.setText(month.getLabel());
         NumberFormat numberFormatter = NumberFormat.getInstance(locale);
 
-        final int numRows = cells.size();
+        final int numRows = cells.size() + 1;
         grid.setNumRows(numRows);
-        for (int i = 0; i < 6; i++) {
+        /*for (int i = 0; i < 6; i++)*/
+        for (int i = 0; i < 7; i++) {
             CalendarRowView weekRow = (CalendarRowView) grid.getChildAt(i + 1);
             weekRow.setListener(listener);
             if (i < numRows) {
                 weekRow.setVisibility(VISIBLE);
-                List<MonthCellDescriptor> week = cells.get(i);
-                for (int c = 0; c < week.size(); c++) {
-                    MonthCellDescriptor cell = week.get(isRtl ? 6 - c : c);
-                    CalendarCellView cellView = (CalendarCellView) weekRow.getChildAt(c);
-
-                    String cellDate = numberFormatter.format(cell.getValue());
-                    if (!cellView.getDayOfMonthTextView().getText().equals(cellDate)) {
-                        cellView.getDayOfMonthTextView().setText(cellDate);
+                if (i == 0) {
+                    List<MonthCellDescriptor> monthTitle = cells.get(0);
+                    boolean isFirstTime = true;
+                    for (int c = 0; c < monthTitle.size(); c++) {
+                        MonthCellDescriptor cell = monthTitle.get(isRtl ? 6 - c : c);
+                        CalendarCellView cellView = (CalendarCellView) weekRow.getChildAt(c);
+                        if (cell.isCurrentMonth() && isFirstTime) {
+                            cellView.getDayOfMonthTextView().setText(month.getLabel());
+                            cellView.setVisibility(cell.isCurrentMonth() ? VISIBLE : INVISIBLE);
+                            cellView.setClickable(false);
+                            cellView.setSelectable(false);
+                            cellView.setSelected(false);
+                            cellView.setCurrentMonth(cell.isCurrentMonth());
+                            cellView.setRangeState(cell.getRangeState());
+                            cellView.setHighlighted(cell.isHighlighted());
+                            cellView.setTag(cell);
+                            cellView.setTitleValue(true);
+                            isFirstTime = false;
+                            if (null != decorators) {
+                                for (CalendarCellDecorator decorator : decorators) {
+                                    decorator.decorate(cellView, cell.getDate());
+                                }
+                            }
+                        } else {
+                            cellView.setVisibility(INVISIBLE);
+                            cellView.setTag(cell);
+                        }
                     }
-                    cellView.setEnabled(cell.isCurrentMonth());
-                    cellView.setVisibility(cell.isCurrentMonth() ? VISIBLE : INVISIBLE);
-                    cellView.setClickable(!displayOnly);
+                } else {
+                    List<MonthCellDescriptor> week = cells.get(i - 1);
+                    for (int c = 0; c < week.size(); c++) {
+                        MonthCellDescriptor cell = week.get(isRtl ? 6 - c : c);
+                        CalendarCellView cellView = (CalendarCellView) weekRow.getChildAt(c);
 
-                    cellView.setSelectable(cell.isSelectable());
-                    cellView.setSelected(cell.isSelected());
-                    cellView.setCurrentMonth(cell.isCurrentMonth());
-                    cellView.setToday(cell.isToday());
-                    cellView.setRangeState(cell.getRangeState());
-                    cellView.setHighlighted(cell.isHighlighted());
-                    cellView.setTag(cell);
+                        String cellDate = numberFormatter.format(cell.getValue());
+                        if (!cellView.getDayOfMonthTextView().getText().equals(cellDate)) {
+                            cellView.getDayOfMonthTextView().setText(cellDate);
+                        }
+                        cellView.setEnabled(cell.isCurrentMonth());
+                        cellView.setVisibility(cell.isCurrentMonth() ? VISIBLE : INVISIBLE);
+                        cellView.setClickable(!displayOnly);
 
-                    if (null != decorators) {
-                        for (CalendarCellDecorator decorator : decorators) {
-                            decorator.decorate(cellView, cell.getDate());
+                        cellView.setSelectable(cell.isSelectable());
+                        cellView.setSelected(cell.isSelected());
+                        cellView.setCurrentMonth(cell.isCurrentMonth());
+                        cellView.setToday(cell.isToday());
+                        cellView.setTitleValue(false);
+                        cellView.setRangeState(cell.getRangeState());
+                        cellView.setHighlighted(cell.isHighlighted());
+                        cellView.setTag(cell);
+
+                        if (null != decorators) {
+                            for (CalendarCellDecorator decorator : decorators) {
+                                decorator.decorate(cellView, cell.getDate());
+                            }
                         }
                     }
                 }

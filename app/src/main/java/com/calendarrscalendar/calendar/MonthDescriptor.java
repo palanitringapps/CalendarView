@@ -29,7 +29,7 @@ class MonthDescriptor {
   }
 
   public String getLabel() {
-    return label;
+    return label.substring(0,3).toUpperCase();
   }
 
   void setLabel(String label) {
@@ -44,8 +44,8 @@ class MonthDescriptor {
         + '\''
         + ", month="
         + month
-        + ", year="
-        + year
+       /* + ", year="
+        + year*/
         + '}';
   }
 }

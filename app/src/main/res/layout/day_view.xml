@@ -4,24 +4,25 @@
     android:layout_height="wrap_content">
 
     <View
+        android:id="@+id/vi_dash"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:background="@color/colorAccent"/>
     <TextView
         android:id="@+id/day"
-        android:layout_width="46dp"
-        android:layout_height="46dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:layout_gravity="center"
-        android:textSize="16sp"
-        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:layout_marginTop="4dp"
         android:text="12"/>
     <View
         android:id="@+id/date_schedule_view"
-        android:layout_width="12dp"
-        android:layout_height="12dp"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
         android:text="0"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_gravity="center"
         android:background="@drawable/circle"/>
 </LinearLayout>
