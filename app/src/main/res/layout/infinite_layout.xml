@@ -1,18 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.calendarrscalendar.calendar.CalendarRowView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
 
-    <LinearLayout
+    <com.calendarrscalendar.calendar.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="S"
+            android:textColor="@color/title_month"
+            android:textSize="@dimen/font_infinite_calendar_days" />
+    </com.calendarrscalendar.calendar.CalendarCellView>
+
+    <com.calendarrscalendar.calendar.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="M"
+            android:textColor="@color/title_month"
+            android:textSize="@dimen/font_infinite_calendar_days" />
+    </com.calendarrscalendar.calendar.CalendarCellView>
+
+    <com.calendarrscalendar.calendar.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="T"
+            android:textColor="@color/title_month"
+            android:textSize="@dimen/font_infinite_calendar_days" />
+    </com.calendarrscalendar.calendar.CalendarCellView>
+
+    <com.calendarrscalendar.calendar.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="W"
+            android:textColor="@color/title_month"
+            android:textSize="@dimen/font_infinite_calendar_days" />
+    </com.calendarrscalendar.calendar.CalendarCellView>
+
+    <com.calendarrscalendar.calendar.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Th"
+            android:textColor="@color/title_month"
+            android:textSize="@dimen/font_infinite_calendar_days" />
+    </com.calendarrscalendar.calendar.CalendarCellView>
+
+    <com.calendarrscalendar.calendar.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="F"
+        android:textColor="@color/title_month"
+        android:textSize="@dimen/font_infinite_calendar_days" />
+    </com.calendarrscalendar.calendar.CalendarCellView>
+
+    <com.calendarrscalendar.calendar.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="Sa"
+        android:textColor="@color/title_month"
+        android:textSize="@dimen/font_infinite_calendar_days" />
+    </com.calendarrscalendar.calendar.CalendarCellView>
+
+    <!--<LinearLayout
         android:id="@+id/weekDays"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:baselineAligned="false"
+        android:weightSum="7"
         android:orientation="horizontal" >
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1" >
 
             <TextView
@@ -22,13 +115,14 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="S"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1" >
 
             <TextView
@@ -38,13 +132,14 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="M"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1" >
 
             <TextView
@@ -54,7 +149,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="T"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days"
                 />
         </RelativeLayout>
@@ -62,6 +157,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1" >
 
             <TextView
@@ -71,7 +167,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="W"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days"
                 />
         </RelativeLayout>
@@ -79,6 +175,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1" >
 
             <TextView
@@ -88,7 +185,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="Th"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days"
                 />
         </RelativeLayout>
@@ -96,6 +193,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1" >
 
             <TextView
@@ -105,7 +203,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="F"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days"
                 />
         </RelativeLayout>
@@ -113,6 +211,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1" >
 
             <TextView
@@ -122,9 +221,9 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="S"
-                android:textColor="@color/custom_header_text"
+                android:textColor="@color/title_month"
                 android:textSize="@dimen/font_infinite_calendar_days" />
         </RelativeLayout>
-    </LinearLayout>
+    </LinearLayout>-->
 
-</RelativeLayout>
+</com.calendarrscalendar.calendar.CalendarRowView>

@@ -12,17 +12,11 @@
     android:layout_below="@id/infinite"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
-    android:scrollbarStyle="outsideOverlay"
-    android:clipToPadding="false"
     android:background="#ffffff"
-    app:tsquare_dayTextColor="@color/custom_calendar_text_selector"
-    app:tsquare_dividerColor="@color/transparent"
-    app:tsquare_titleTextColor="@color/custom_calendar_text_selector"
-    app:tsquare_headerTextColor="@color/custom_header_text"
-    />
+    app:dayTextColor="@color/custom_calendar_text_selector"
+    app:dividerColor="@color/transparent"
+    app:titleTextColor="@color/custom_calendar_text_selector"
+    app:headerTextColor="@color/title_month" />
 </RelativeLayout>
 <!--
 <com.calendarrscalendar.calendar.CalendarPickerView

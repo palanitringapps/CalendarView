@@ -3,23 +3,23 @@
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-  <item app:tsquare_state_range_middle="true">
+  <item app:state_range_middle="true">
     <color android:color="@android:color/transparent"/>
   </item>
   <item android:state_selected="true">
     <shape xmlns:android="http://schemas.android.com/apk/res/android"
         android:shape="rectangle" >
-      <corners android:radius="18dp"/>
+      <corners android:radius="10dp"/>
       <solid android:color="@color/calendar_selected_day_bg" />
     </shape>
   </item>
-  <item app:tsquare_state_current_month="false">
+  <item app:state_current_month="false">
     <color android:color="@color/transparent"/>
   </item>
-  <item app:tsquare_state_highlighted="true">
+  <item app:state_highlighted="true">
     <color android:color="@color/calendar_highlighted_day_bg"/>
   </item>
-  <item app:tsquare_state_today="true">
+  <item app:state_today="true">
     <color android:color="@color/calendar_text_active"/>
   </item>
   <item>

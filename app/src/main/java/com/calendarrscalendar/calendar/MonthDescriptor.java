@@ -1,4 +1,3 @@
-// Copyright 2012 Square, Inc.
 package com.calendarrscalendar.calendar;
 
 import java.util.Date;
@@ -9,27 +8,27 @@ class MonthDescriptor {
   private final Date date;
   private String label;
 
-  public MonthDescriptor(int month, int year, Date date, String label) {
+  MonthDescriptor(int month, int year, Date date, String label) {
     this.month = month;
     this.year = year;
     this.date = date;
     this.label = label;
   }
 
-  public int getMonth() {
+  int getMonth() {
     return month;
   }
 
-  public int getYear() {
+  int getYear() {
     return year;
   }
 
-  public Date getDate() {
+  Date getDate() {
     return date;
   }
 
-  public String getLabel() {
-    return label;
+  String getLabel() {
+    return label.substring(0,3).toUpperCase();
   }
 
   void setLabel(String label) {
@@ -44,8 +43,6 @@ class MonthDescriptor {
         + '\''
         + ", month="
         + month
-        + ", year="
-        + year
         + '}';
   }
 }

@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         dialogView = (CalendarPickerView)findViewById(R.id.calendar_view);
         Calendar calendar = Calendar.getInstance();
         final Calendar nextYear = Calendar.getInstance();
-        nextYear.add(Calendar.YEAR, 100);
+        nextYear.add(Calendar.YEAR, 10);
         dialogView.init(calendar.getTime(), nextYear.getTime()) //
                 .withSelectedDate(new Date());
     }
