@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.calendarrscalendar.R;
 
@@ -17,22 +16,20 @@ import java.util.List;
 import java.util.Locale;
 
 public class MonthView extends LinearLayout {
-    TextView title;
     CalendarGridView grid;
-    //CalendarGridView titleGrid;
     private Listener listener;
     private List<CalendarCellDecorator> decorators;
     private boolean isRtl;
     private Locale locale;
 
-    public static MonthView create(ViewGroup parent, LayoutInflater inflater,
+    /*public static MonthView create(ViewGroup parent, LayoutInflater inflater,
                                    DateFormat weekdayNameFormat, Listener listener, Calendar today, int dividerColor,
                                    int dayBackgroundResId, int dayTextColorResId, int titleTextColor, boolean displayHeader,
                                    int headerTextColor, Locale locale, DayViewAdapter adapter) {
         return create(parent, inflater, weekdayNameFormat, listener, today, dividerColor,
                 dayBackgroundResId, dayTextColorResId, titleTextColor, displayHeader, headerTextColor, null,
                 locale, adapter, 2);
-    }
+    }*/
 
     public static MonthView create(ViewGroup parent, LayoutInflater inflater,
                                    DateFormat weekdayNameFormat, Listener listener, Calendar today, int dividerColor,
@@ -41,9 +38,7 @@ public class MonthView extends LinearLayout {
                                    DayViewAdapter adapter, int dateScheduled) {
         final MonthView view = (MonthView) inflater.inflate(R.layout.month, parent, false);
         view.setDayViewAdapter(adapter, dateScheduled);
-        view.setDividerColor(dividerColor);
         view.setDayTextColor(dayTextColorResId);
-        view.setTitleTextColor(titleTextColor);
         view.setDisplayHeader(displayHeader);
         view.setHeaderTextColor(headerTextColor);
 
@@ -56,11 +51,8 @@ public class MonthView extends LinearLayout {
         view.isRtl = isRtl(locale);
         view.locale = locale;
         int firstDayOfWeek = today.getFirstDayOfWeek();
-        final CalendarRowView headerRow = (CalendarRowView) view.grid.getChildAt(0);
         for (int offset = 0; offset < 7; offset++) {
             today.set(Calendar.DAY_OF_WEEK, getDayOfWeek(firstDayOfWeek, offset, view.isRtl));
-            //final TextView textView = (TextView) headerRow.getChildAt(offset);
-            //textView.setText(weekdayNameFormat.format(today.getTime()));
         }
         today.set(Calendar.DAY_OF_WEEK, originalDayOfWeek);
         view.listener = listener;
@@ -91,24 +83,17 @@ public class MonthView extends LinearLayout {
         this.decorators = decorators;
     }
 
-    public List<CalendarCellDecorator> getDecorators() {
-        return decorators;
-    }
-
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        title = (TextView) findViewById(R.id.title);
         grid = (CalendarGridView) findViewById(R.id.calendar_grid);
-        //titleGrid = ((CalendarGridView) findViewById(R.id.calendar_title_row));
     }
 
 
     public void init(MonthDescriptor month, List<List<MonthCellDescriptor>> cells,
                      boolean displayOnly, Typeface titleTypeface, Typeface dateTypeface) {
-        Logr.d("Initializing MonthView (%d) for %s", System.identityHashCode(this), month);
+
         long start = System.currentTimeMillis();
-        title.setText(month.getLabel());
         NumberFormat numberFormatter = NumberFormat.getInstance(locale);
 
         final int numRows = cells.size();
@@ -154,18 +139,10 @@ public class MonthView extends LinearLayout {
             }
         }
 
-        if (titleTypeface != null) {
-            title.setTypeface(titleTypeface);
-        }
         if (dateTypeface != null) {
             grid.setTypeface(dateTypeface);
         }
 
-        Logr.d("MonthView.init took %d ms", System.currentTimeMillis() - start);
-    }
-
-    public void setDividerColor(int color) {
-        grid.setDividerColor(color);
     }
 
     public void setDayBackground(int resId) {
@@ -178,11 +155,6 @@ public class MonthView extends LinearLayout {
 
     public void setDayViewAdapter(DayViewAdapter adapter, int scheduleddate) {
         grid.setDayViewAdapter(adapter, scheduleddate);
-        //titleGrid.setDayViewAdapter(adapter, scheduleddate);
-    }
-
-    public void setTitleTextColor(int color) {
-        title.setTextColor(color);
     }
 
     public void setDisplayHeader(boolean displayHeader) {

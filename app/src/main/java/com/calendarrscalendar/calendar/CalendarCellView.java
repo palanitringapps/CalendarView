@@ -1,11 +1,7 @@
 package com.calendarrscalendar.calendar;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -14,41 +10,31 @@ import com.calendarrscalendar.R;
 
 public class CalendarCellView extends FrameLayout {
     private static final int[] STATE_SELECTABLE = {
-            R.attr.tsquare_state_selectable
+            R.attr.state_selectable
     };
     private static final int[] STATE_CURRENT_MONTH = {
-            R.attr.tsquare_state_current_month
-    };
-
-    private static final int[] STATE_CURRENT_MONTH_LABLE = {
-            R.attr.state_title
-    };
-    private static final int[] STATE_TODAY = {
-            R.attr.tsquare_state_today
+            R.attr.state_current_month
     };
     private static final int[] STATE_HIGHLIGHTED = {
-            R.attr.tsquare_state_highlighted
+            R.attr.state_highlighted
     };
     private static final int[] STATE_RANGE_FIRST = {
-            R.attr.tsquare_state_range_first
+            R.attr.state_range_first
     };
     private static final int[] STATE_RANGE_MIDDLE = {
-            R.attr.tsquare_state_range_middle
+            R.attr.state_range_middle
     };
     private static final int[] STATE_RANGE_LAST = {
-            R.attr.tsquare_state_range_last
+            R.attr.state_range_last
     };
 
     private boolean isSelectable = false;
     private boolean isCurrentMonth = false;
     private boolean isToday = false;
     private boolean isHighlighted = false;
-    private boolean isTitleText = false;
     private MonthCellDescriptor.RangeState rangeState = MonthCellDescriptor.RangeState.NONE;
     private TextView dayOfMonthTextView;
     private TextView monthLabel;
-    private View line;
-    private View scheduledDateIndicator;
 
     @SuppressWarnings("UnusedDeclaration") //
     public CalendarCellView(Context context, AttributeSet attrs) {
@@ -69,29 +55,15 @@ public class CalendarCellView extends FrameLayout {
         }
     }
 
-    public void setMonthLabelShow(boolean isVisible,String monthName) {
+    public void setMonthLabelShow(boolean isVisible, String monthName) {
         monthLabel.setText(monthName);
         monthLabel.setVisibility(isVisible ? VISIBLE : INVISIBLE);
     }
+
     public void setToday(boolean isToday) {
         if (this.isToday != isToday) {
             this.isToday = isToday;
             refreshDrawableState();
-        }
-    }
-
-    public void setTitleValue(boolean isTitleText) {
-        if (this.isTitleText != isTitleText) {
-            if (dayOfMonthTextView != null) {
-                ViewGroup.LayoutParams layoutParams = dayOfMonthTextView.getLayoutParams();
-                layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;
-                layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
-                dayOfMonthTextView.setLayoutParams(layoutParams);
-                dayOfMonthTextView.setTextSize(14);
-                dayOfMonthTextView.setTextColor(getResources().getColor(R.color.title_month));
-                this.line.setVisibility(GONE);
-                this.scheduledDateIndicator.setVisibility(GONE);
-            }
         }
     }
 
@@ -109,26 +81,6 @@ public class CalendarCellView extends FrameLayout {
         }
     }
 
-    public boolean isCurrentMonth() {
-        return isCurrentMonth;
-    }
-
-    public boolean isToday() {
-        return isToday;
-    }
-
-    public boolean isSelectable() {
-        return isSelectable;
-    }
-
-    public boolean isHighlighted() {
-        return isHighlighted;
-    }
-
-    public MonthCellDescriptor.RangeState getRangeState() {
-        return rangeState;
-    }
-
     @Override
     protected int[] onCreateDrawableState(int extraSpace) {
         final int[] drawableState = super.onCreateDrawableState(extraSpace + 5);
@@ -140,10 +92,6 @@ public class CalendarCellView extends FrameLayout {
         if (isCurrentMonth) {
             mergeDrawableStates(drawableState, STATE_CURRENT_MONTH);
         }
-
-    /*if (isToday) {
-      mergeDrawableStates(drawableState, STATE_TODAY);
-    }*/
 
         if (isHighlighted) {
             mergeDrawableStates(drawableState, STATE_HIGHLIGHTED);
@@ -168,12 +116,6 @@ public class CalendarCellView extends FrameLayout {
         dayOfMonthTextView = textView;
     }
 
-    public void setDashLineView(View dashLineView, View scheduleIndicator) {
-        this.line = dashLineView;
-        this.scheduledDateIndicator = scheduleIndicator;
-    }
-
-
     public TextView getDayOfMonthTextView() {
         if (dayOfMonthTextView == null) {
             throw new IllegalStateException(
@@ -181,15 +123,6 @@ public class CalendarCellView extends FrameLayout {
             );
         }
         return dayOfMonthTextView;
-    }
-
-    public TextView getMonthLabelTextView() {
-        if (monthLabel == null) {
-            throw new IllegalStateException(
-                    "You have to setMonthLabelTextView in your custom DayViewAdapter."
-            );
-        }
-        return monthLabel;
     }
 }
 

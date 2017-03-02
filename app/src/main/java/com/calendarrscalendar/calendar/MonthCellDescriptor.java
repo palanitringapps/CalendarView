@@ -1,12 +1,10 @@
-// Copyright 2012 Square, Inc.
-
 package com.calendarrscalendar.calendar;
 
 import java.util.Date;
 
 /** Describes the state of a particular date cell in a {@link MonthView}. */
 class MonthCellDescriptor {
-  public enum RangeState {
+  enum RangeState {
     NONE, FIRST, MIDDLE, LAST
   }
 
@@ -31,23 +29,23 @@ class MonthCellDescriptor {
     this.rangeState = rangeState;
   }
 
-  public Date getDate() {
+  Date getDate() {
     return date;
   }
 
-  public boolean isCurrentMonth() {
+  boolean isCurrentMonth() {
     return isCurrentMonth;
   }
 
-  public boolean isSelectable() {
+  boolean isSelectable() {
     return isSelectable;
   }
 
-  public boolean isSelected() {
+  boolean isSelected() {
     return isSelected;
   }
 
-  public void setSelected(boolean selected) {
+  void setSelected(boolean selected) {
     isSelected = selected;
   }
 
@@ -59,19 +57,19 @@ class MonthCellDescriptor {
     isHighlighted = highlighted;
   }
 
-  public boolean isToday() {
+  boolean isToday() {
     return isToday;
   }
 
-  public RangeState getRangeState() {
+  RangeState getRangeState() {
     return rangeState;
   }
 
-  public void setRangeState(RangeState rangeState) {
+  void setRangeState(RangeState rangeState) {
     this.rangeState = rangeState;
   }
 
-  public int getValue() {
+  int getValue() {
     return value;
   }
 
